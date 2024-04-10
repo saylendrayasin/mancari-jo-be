@@ -1,15 +1,15 @@
 import express, { Router } from 'express';
 import http from 'http';
-import Config from './config/config.js';
+import Config from './src/config/config.js';
 import fileUpload from 'express-fileupload';
 import cors from 'cors';
-import ModuleDatabase from './modules/database.js';
+import ModuleDatabase from './src/modules/database.js';
 
-import RouterAuth from './routes/auth.js';
-import RouterUser from './routes/user.js';
-import RouterJob from './routes/job.js';
-import RouterJobPreferences from './routes/job-preferences.js';
-import Router404 from './routes/404.js';
+import RouterAuth from './src/routes/auth.js';
+import RouterUser from './src/routes/user.js';
+import RouterJob from './src/routes/job.js';
+import RouterJobPreferences from './src/routes/job-preferences.js';
+import Router404 from './src/routes/404.js';
 
 const app = express();
 const httpServer = http.createServer(app);
