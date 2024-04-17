@@ -14,6 +14,9 @@ const userJobProviderSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  fotoProfil: {
+    type: String,
+  },
   role: {
     type: String,
     required: true,

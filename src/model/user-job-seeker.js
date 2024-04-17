@@ -15,6 +15,9 @@ const userJobSeekerSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  fotoProfil: {
+    type: String,
+  },
   role: {
     type: String,
     required: true,
@@ -45,9 +48,11 @@ const userJobSeekerSchema = new mongoose.Schema({
     type: [String],
     required: false,
   },
-  pengalamanKerja: [{
-    type: Schema.Types.Mixed,
-  }],
+  pengalamanKerja: [
+    {
+      type: Schema.Types.Mixed,
+    },
+  ],
 });
 
 const ModelUserJobSeeker = mongoose.model('userJobSeeker', userJobSeekerSchema);
