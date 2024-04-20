@@ -3,6 +3,10 @@ import { ModuleJob } from '../model/job.js';
 
 const RouterJob = express.Router();
 
+/**
+ * Mengambil daftar semua pekerjaan.
+ * @returns {object} - Respon berisi status, pesan, dan data pekerjaan.
+ */
 RouterJob.get('/', async (req, res) => {
   try {
     const jobs = await ModuleJob.getJob();
@@ -20,6 +24,11 @@ RouterJob.get('/', async (req, res) => {
   }
 });
 
+/**
+ * Mengambil detail pekerjaan berdasarkan ID.
+ * @param {string} id - ID pekerjaan yang dicari.
+ * @returns {object} - Respon berisi status, pesan, dan data pekerjaan.
+ */
 RouterJob.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -46,6 +55,10 @@ RouterJob.get('/:id', async (req, res) => {
   }
 });
 
+/**
+ * Menambahkan pekerjaan baru.
+ * @returns {object} - Respon berisi status, pesan, dan data pekerjaan baru.
+ */
 RouterJob.post('/', async (req, res) => {
   try {
     const data = req.body;
@@ -65,6 +78,11 @@ RouterJob.post('/', async (req, res) => {
   }
 });
 
+/**
+ * Mengupdate pekerjaan berdasarkan ID.
+ * @param {string} id - ID pekerjaan yang akan diupdate.
+ * @returns {object} - Respon berisi status, pesan, dan data pekerjaan yang telah diupdate.
+ */
 RouterJob.patch('/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -92,6 +110,11 @@ RouterJob.patch('/:id', async (req, res) => {
   }
 });
 
+/**
+ * Menghapus pekerjaan berdasarkan ID.
+ * @param {string} id - ID pekerjaan yang akan dihapus.
+ * @returns {object} - Respon berisi status, pesan, dan data pekerjaan yang telah dihapus.
+ */
 RouterJob.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;

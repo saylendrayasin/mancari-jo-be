@@ -4,6 +4,11 @@ import { ModuleUserJobProvider } from '../model/user -job-provider.js';
 
 const RouterUser = express.Router();
 
+/**
+ * Mendapatkan informasi pengguna berdasarkan ID.
+ * @param {string} id - ID pengguna.
+ * @returns {object} - Objek informasi pengguna.
+ */
 RouterUser.get('/:id', async (req, res) => {
   try {
     const id = req.params.id;
@@ -30,6 +35,12 @@ RouterUser.get('/:id', async (req, res) => {
   }
 });
 
+/**
+ * Memperbarui informasi pengguna berdasarkan ID.
+ * @param {string} id - ID pengguna.
+ * @param {object} data - Data yang akan diperbarui pada pengguna.
+ * @returns {object} - Objek informasi pengguna yang telah diperbarui.
+ */
 RouterUser.patch('/:id', async (req, res) => {
   try {
     const id = req.params.id;
@@ -67,6 +78,11 @@ RouterUser.patch('/:id', async (req, res) => {
 
 export default RouterUser;
 
+/**
+ * Memeriksa keberadaan pengguna berdasarkan ID.
+ * @param {string} id - ID pengguna.
+ * @returns {object} - Objek informasi pengguna.
+ */
 async function CheckUserById(id) {
   let user;
   user =

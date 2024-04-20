@@ -5,6 +5,12 @@ import { ModuleUserJobProvider } from '../model/user -job-provider.js';
 
 const RouterAuth = express.Router();
 
+/**
+ * Registrasi pengguna baru.
+ * @param {object} req - Request body berisi data pengguna yang akan diregistrasi.
+ * @param {object} res - Response berisi status, pesan, dan data pengguna baru.
+ * @returns {object} - Respon berisi status, pesan, dan data pengguna baru.
+ */
 RouterAuth.post('/register', async (req, res) => {
   try {
     const data = req.body;
@@ -82,6 +88,12 @@ RouterAuth.post('/register', async (req, res) => {
   }
 });
 
+/**
+ * Autentikasi pengguna berdasarkan nama pengguna dan kata sandi.
+ * @param {object} req - Request body berisi data autentikasi pengguna.
+ * @param {object} res - Response berisi status, pesan, dan data pengguna yang berhasil login.
+ * @returns {object} - Respon berisi status, pesan, dan data pengguna yang berhasil login.
+ */
 RouterAuth.post('/login', async (req, res) => {
   try {
     const { namaPengguna, kataSandi, role } = req.body;
@@ -123,6 +135,12 @@ RouterAuth.post('/login', async (req, res) => {
   }
 });
 
+/**
+ * Memeriksa ketersediaan nama pengguna.
+ * @param {object} req - Request query berisi nama pengguna yang akan diperiksa.
+ * @param {object} res - Response berisi status, pesan, dan informasi ketersediaan nama pengguna.
+ * @returns {object} - Respon berisi status, pesan, dan informasi ketersediaan nama pengguna.
+ */
 RouterAuth.get('/check-username', async (req, res) => {
   try {
     const { namaPengguna, role } = req.query;
@@ -157,6 +175,12 @@ RouterAuth.get('/check-username', async (req, res) => {
   }
 });
 
+/**
+ * Mengubah kata sandi pengguna.
+ * @param {object} req - Request body berisi id pengguna dan kata sandi baru.
+ * @param {object} res - Response berisi status, pesan, dan data pengguna dengan kata sandi baru.
+ * @returns {object} - Respon berisi status, pesan, dan data pengguna dengan kata sandi baru.
+ */
 RouterAuth.patch('/change-password', async (req, res) => {
   try {
     const { password, id, role } = req.body;

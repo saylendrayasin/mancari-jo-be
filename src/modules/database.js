@@ -2,6 +2,10 @@ import mongoose from 'mongoose';
 import Config from '../config/config.js';
 
 class ModuleDatabase {
+  /**
+   * Membuat koneksi dengan database MongoDB.
+   * @returns {Promise} - Promise yang akan terpenuhi jika koneksi berhasil atau ditolak jika gagal.
+   */
   static async connect() {
     return new Promise((res, rej) => {
       mongoose.set('strictQuery', false);

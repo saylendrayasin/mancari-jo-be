@@ -1,5 +1,11 @@
 import ModuleJWT from '../modules/jwt';
 
+/**
+ * Fungsi middleware untuk memverifikasi token otentikasi pada setiap permintaan.
+ * @param {object} req - Objek permintaan HTTP.
+ * @param {object} res - Objek respons HTTP.
+ * @param {function} next - Fungsi middleware selanjutnya dalam rangkaian.
+ */
 const MiddlewareVerifyToken = (req, res, next) => {
   const token = req.headers.authorization?.split(' ')[1];
   const parsedToken = ModuleJWT.verify(token);

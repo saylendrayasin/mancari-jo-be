@@ -26,6 +26,10 @@ app.use('/api', [], RouterApi);
 
 (async () => {
   try {
+    /**
+     * Terhubung ke database.
+     * - Mencatat pesan keberhasilan atau kegagalan berdasarkan status koneksi.
+     */
     await ModuleDatabase.connect()
       .then(() => {
         console.log('[server_ok] Connected to database');
@@ -33,6 +37,12 @@ app.use('/api', [], RouterApi);
       .catch((err) => {
         console.log('[server_error] Failed to connect to database: ', err);
       });
+    
+    /**
+     * Rute API
+     */
+    
+    // Pesan selamat datang untuk router API
     RouterApi.use('/', (req, res, next) => {
       if (req.url !== '/') {
         return next();
@@ -43,15 +53,25 @@ app.use('/api', [], RouterApi);
       });
     });
 
+    // Rute terkait otentikasi
     RouterApi.use('/auth', RouterAuth);
 
+    // Rute terkait operasi pengguna
     RouterApi.use('/user', RouterUser);
 
+    // Rute terkait operasi pekerjaan
     RouterApi.use('/job', RouterJob);
 
+    // Rute terkait preferensi pekerjaan
     RouterApi.use('/job-preferences', RouterJobPreferences);
 
+    // Rute tangkapan untuk menangani kesalahan 404
     RouterApi.use('/*', Router404);
+
+    /**
+     * Memulai server HTTP.
+     * - Mendengarkan permintaan masuk pada port yang ditentukan.
+     */
     httpServer.listen(Config.HTTP_PORT, () => {
       console.log(
         `[server_ok] ⚡ Running HTTP Server at port ${Config.HTTP_PORT}`
