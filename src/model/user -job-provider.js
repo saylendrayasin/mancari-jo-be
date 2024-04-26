@@ -60,7 +60,6 @@ async function getUSerById(id) {
  * @param {object} data - Data pengguna baru yang akan ditambahkan.
  * @returns {Promise<object>} Objek pengguna yang baru ditambahkan.
  */
-async 
 async function addUser(data) {
   return await ModelUserJobProvider.create(data);
 }
