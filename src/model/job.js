@@ -47,6 +47,9 @@ const jobSchema = new mongoose.Schema({
   jamKerja: {
     type: Schema.Types.Mixed,
   },
+  hariKerja: {
+    type: Schema.Types.Mixed,
+  },
 });
 
 const ModelJob = mongoose.model('job', jobSchema);
