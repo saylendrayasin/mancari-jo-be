@@ -35,6 +35,9 @@ const jobSchema = new mongoose.Schema({
   diterima: {
     type: Schema.Types.Mixed,
   },
+  ditolak: {
+    type: Schema.Types.Mixed,
+  },
   status: {
     type: String,
     enum: ['open', 'closed'],
